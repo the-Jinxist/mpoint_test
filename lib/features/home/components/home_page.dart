@@ -4,6 +4,7 @@ import 'package:moniepoint_test/features/home/widgets/buy_sell_section.dart';
 import 'package:moniepoint_test/features/home/widgets/home_welcome_section.dart';
 import 'package:moniepoint_test/features/home/widgets/places.dart';
 import 'package:moniepoint_test/shared/theme/colors.dart';
+import 'package:moniepoint_test/utils/extensions.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -56,12 +57,12 @@ class HomePage extends StatelessWidget {
                     crossAxisCount: 2,
                     crossAxisSpacing: 2,
                     mainAxisSpacing: 2,
-                    children: const [
+                    children: [
                       StaggeredGridTile.count(
                         crossAxisCellCount: 2,
                         mainAxisCellCount: 1.2,
                         child: Places(
-                          image: "home_one",
+                          image: "home_one".toJPG(),
                           title: "Gladkova St, 25.",
                         ),
                       ),
@@ -69,7 +70,7 @@ class HomePage extends StatelessWidget {
                         crossAxisCellCount: 1,
                         mainAxisCellCount: 1,
                         child: Places(
-                          image: "home_two",
+                          image: "home_two".toJPG(),
                           title: "Gladkova St, 26.",
                         ),
                       ),
@@ -77,7 +78,7 @@ class HomePage extends StatelessWidget {
                         crossAxisCellCount: 1,
                         mainAxisCellCount: 1,
                         child: Places(
-                          image: "home_three",
+                          image: "home_three".toJPG(),
                           title: "Gladkova St, 27.",
                         ),
                       ),
@@ -85,7 +86,15 @@ class HomePage extends StatelessWidget {
                         crossAxisCellCount: 2,
                         mainAxisCellCount: 1.5,
                         child: Places(
-                          image: "home_four",
+                          image: "home_four".toJPG(),
+                          title: "Alakija St. No 29",
+                        ),
+                      ),
+                      StaggeredGridTile.count(
+                        crossAxisCellCount: 2,
+                        mainAxisCellCount: 1.5,
+                        child: Places(
+                          image: "home_five".toJpeg(),
                           title: "Alakija St. No 29",
                         ),
                       ),

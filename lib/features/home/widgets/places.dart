@@ -20,7 +20,7 @@ class Places extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
-          image: AssetImage("assets/png/$image.jpg"),
+          image: AssetImage(image),
           fit: BoxFit.cover,
         ),
       ),
