@@ -34,7 +34,7 @@ class SearchPage extends StatelessWidget {
                     right: 40,
                     child: MapSearchField(),
                   ),
-                  const Positioned(
+                  Positioned(
                     bottom: kBottomNavigationBarHeight + 50,
                     left: 40,
                     right: 40,

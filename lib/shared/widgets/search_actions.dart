@@ -1,11 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:moniepoint_test/shared/widgets/context_menu.dart';
 
 class SearchActions extends StatelessWidget {
-  const SearchActions({
+  SearchActions({
     super.key,
   });
+
+  final GlobalKey _key = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +31,17 @@ class SearchActions extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _LocalFabs(
-                actionsBackground: actionsBackground,
-                icon: const Icon(
-                  Icons.directions,
-                  color: Colors.white,
+              InkWell(
+                onTap: () {
+                  showMenuWithPosition(_key);
+                },
+                child: _LocalFabs(
+                  key: _key,
+                  actionsBackground: actionsBackground,
+                  icon: const Icon(
+                    Icons.directions,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               Container(

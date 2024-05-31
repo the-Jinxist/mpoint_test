@@ -58,42 +58,50 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        return Container(
-          height: 70,
-          width: constraints.maxWidth,
-          margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: kBottomNavBarBg,
-            borderRadius: BorderRadius.circular(40),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: List.generate(
-              _icons.length,
-              (index) {
-                return InkWell(
-                  onTap: () {
-                    setState(() {
-                      currentIndex = index;
-                    });
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 62,
+              margin: const EdgeInsets.symmetric(vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 4),
+              decoration: BoxDecoration(
+                color: kBottomNavBarBg,
+                borderRadius: BorderRadius.circular(31),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.min,
+                children: List.generate(
+                  _icons.length,
+                  (index) {
+                    return InkWell(
+                      onTap: () {
+                        setState(() {
+                          currentIndex = index;
+                        });
 
-                    widget.onItemTap(index);
+                        widget.onItemTap(index);
+                      },
+                      child: AnimatedContainer(
+                        height: currentIndex == index ? 58 : 40,
+                        width: currentIndex == index ? 58 : 40,
+                        duration: const Duration(milliseconds: 500),
+                        margin: const EdgeInsets.symmetric(horizontal: 6),
+                        decoration: BoxDecoration(
+                          color: currentIndex == index
+                              ? kPrimaryColor
+                              : kBottomNavIconBg,
+                          shape: BoxShape.circle,
+                        ),
+                        child: _icons[index],
+                      ),
+                    );
                   },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 500),
-                    child: CircleAvatar(
-                      radius: currentIndex == index ? 30 : 23,
-                      backgroundColor: currentIndex == index
-                          ? kPrimaryColor
-                          : kBottomNavIconBg,
-                      child: _icons[index],
-                    ),
-                  ),
-                );
-              },
+                ),
+              ),
             ),
-          ),
+          ],
         );
       },
     );
